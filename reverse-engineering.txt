@@ -1,0 +1,113 @@
+This file is part of Aurora HUD v0.1 which is released under CC-BY-SA 4.0.
+
+This file represents my reverse engineering of the files which define Freelancer's user interface.
+
+With Freelancer, many files and UTF nodes are redundant. For example, backgroundpattern.tga is loaded 
+only from multi_attentionreq'd.cmp but amost every .cmp includes it. My guess is that only the first
+texture of each name is loaded, similarly to how adding textures with the same name to one .cmp only
+loads the first one. Though a tedious task to go through, I hope documenting which files actually make
+a difference (and what they do) will be useful both to myself and others.
+
+A tip is to use findstr, e.g. `findstr /m /S "#24" *` to look for common nodes in files.
+
+All paths relative to the DATA/INTERFACE folder.
+
+INTRO/OBJECTS
+    multi_attentionreq'd.cmp
+        The most important file of them all. Sets background texture, frame edge texture and frame animation colour for the entire game.
+         edgecolor.tgaglowedge8.tga sets box perimeter animation texture
+        30.tgaframetexture sets frame outline texture. I chromad this to white and then gated it 0.75. Might want to try making it grey.
+        HUD_gradientblue.tgaglowedge10.tga is box perimeter texture
+        backgroundpattern.tga is the tiled background texture
+        Also sets frame colour for the attention required window.
+    front_serverselect.cmp
+        Sets server selection screen frame inner colour.
+        Edit Material library > INV_insideframecolor > Dc.
+    front_characselectbox.cmp
+        Sets character selection screen frame inner colour and perimeter texture. (INV)
+    multi_charactercreation.cmp
+        Sets character creation dialogue frame inner colour and perimeter texture.
+    front_infowindow.cmp
+        Sets refresh texture for widgets on multiplayer character selection screen.
+        
+NEURONET
+    errorexplanation.cmp
+        Sets frame colour and edge texture for the multiplayer game type selection dialogue.
+        Edit Material library > INV_insideframecolor > Dc.
+
+NEURONET/CHAT
+    chat_background.cmp
+        Again pretty self-explanatory, sets the decorator colour for the multiplayer chat dialogue. Edit Material library > INV_insideframecolor > Dc.
+    
+NEURONET/INVENTORY
+    front_button.cmp
+        Sets scanline texture (refreshtest2) and frame inner colour for intro buttons (edit HUD_darkblue, offset 11-14). This colour is also used for the
+         background of the loading bar.
+    char_infowindow.cmp
+        Sets frame inner colour and edge texture for the game dialogues opened with the panel at the top right of the HUD, with the exception of the chat window.
+        Edit Material library > INV_insideframecolor > Dc.
+    front_options_box2.cmp
+        Sets the frame inner colour for the options (aka preferences/settings) window when accessed from in-game.
+        Edit Material library > INV_insideframecolor > Dc.
+    front_shortoptions_box2.cmp
+        Sets the frame inner colour for the options (aka preferences/settings) window when accessed from the main menu.
+        Edit Material library > INV_insideframecolor > Dc.
+    repair_backgrnd.cmp
+        Sets the frame colour for the repair window. (INV)
+    inv_biginforcard.cmp
+        Sets the frame colour for the dealer (commodity and equipment) windows (INV)
+        
+NEURONET/NEWSVENDOR
+    news_background.cmp
+        Sets frame inner colour for job board and news windows. Edit Material library > Material #345021127001310.
+
+NEURONET/NAVMAP/NEWNAVMAP
+    navmap_background.cmp
+        Sets colour of navmap inside frame. Edit Material library > INV_insideframecolor > Dc.
+        TODO: set colour of edges of popout windows - this doesn't seem to be a texture or anything (probably in left/right.tga)
+    zoomedmap_liberty.3db
+        Stores the texture of the navmap background.
+    nav_selector.3db
+        Sets selector square texture.
+    nav_zoomin.cmp
+        Sets the background textures of all four navmap control buttons (zoom in, zoom out, info, select as target).
+    
+        
+NEURONET/OPTIONS
+    alt-f4window.cmp
+        No prizes for guessing here, this file sets the decorator colour for the "Exit Game" and "Quit to Main Menu" dialogues.
+        Edit Material library > INV_insideframecolor > Dc.
+      
+    escapewindow2.cmp
+        Sets the frame inner colour and edge texture for the F1 menu.
+        Edit Material library > INV_insideframecolor > Dc and Texture library > HUD_gradientblue.tgaglowedge5.tga.
+        
+HUD
+    For these files we need to edit Material #24021004123005 which is the equivalent of INV_insideframecolor in other directories.
+    manueverbox3 and 2 seemingly does nothing.
+    
+    The texture of the pop-out frames on the navbar is set by a file in HUD for the space-side (don't know which one, sorry) and the
+    texture for base-side is set in multi-attnrequired.
+    
+    hud_maneuverbox5.cmp
+        Sets the frame colour of the space-side (not docked) nav-bar in the top center.
+    hud_maneuverbox6.cmp
+        Sets the frame colour of the base-side (docked) nav-bar in the top center.
+    hud_numberboxes.cmp
+        Sets the frame colour of the thruster and velocity panels to the left and right of the central gauge panel respectively.
+    hud_shipinfo.cmp
+        Sets the frame colour for the bottom-right panel which displays weapon status, when maximised. Remember to redo this file
+    hud_shipinfo_min.cmp
+        Sets the frame colour for the bottom-right panel which displays weapon status, when minimised.
+    hud_target.cmp
+        Sets the frame colour for the bottom-left panel which displays contact status, when maximised.
+    hud_target_min.cmp
+        Sets the frame colour for the bottom-left panel which displays contact status, when minimised.
+    hud_nnbox5.cmp
+        Sets the frame colour for the top-right panel, both space-side and base-side.
+        Also sets the textures for most HUD elements. Edit HUD_gradientbluefinal.tgaHUD_glowedgefinal.tga and refreshtest2.tga
+        The exception is hud_shipinfo.cmp which seems to inherit from the rest of the interface...
+    hud_nnbox7.cmp
+        Same as hud_nnbox5.cmp but for multiplayer. Yeah, really.
+    hud_guagewindow.cmp (sic)
+        Sets the frame colour for the bottom-center panel containing status bars.
