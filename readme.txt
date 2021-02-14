@@ -18,8 +18,6 @@ Original content Copyright 2020. Created using GIMP 2.10, UTFEditor 1.4, and a w
  - Baside navbar popout is still blue (cannot find the file for this)
  - During the vendor window opening animation the blue frame colour is visible. Presumably this is just another file
     that needs to be changed.
- - Some cursors are still blue. This just requires buttontextures.txm to be edited to cover that area in black which
-    I haven't got round to yet.
  - Freelancer offsets the navmap background by a couple of pixels because the left margin isn't taken into account.
     It might be possible to fix this (extremely minor though).
 

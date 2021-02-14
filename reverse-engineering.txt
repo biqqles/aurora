@@ -12,6 +12,12 @@ A tip is to use findstr, e.g. `findstr /m /S "#24" *` to look for common nodes i
 
 All paths relative to the DATA/INTERFACE folder.
 
+.
+    buttontextures.txm
+        Holds the textures for cursors and buttons. The texture HUD_targetingelement holds graphics for the various cursors that
+        appear while in space. Each graphic is a mask for either an "outline" or "inline" - in both cases the game replaces white
+        with another another colour. For Aurora I edited the "outline" masks to make them black, replacing the blue colour of vanilla.
+
 INTRO/OBJECTS
     multi_attentionreq'd.cmp
         The most important file of them all. Sets background texture, frame edge texture and frame animation colour for the entire game.
