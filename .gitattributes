@@ -1,2 +1,2 @@
-dist/* linguist-vendored=false
+*/dist/** linguist-vendored=false
 *.ini linguist-detectable=true
