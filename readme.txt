@@ -1,4 +1,4 @@
-                                                    Aurora HUD v0.1 by Biggles
+                                                    Aurora HUD v1.1 by Biggles
 
                                                             ////////
 

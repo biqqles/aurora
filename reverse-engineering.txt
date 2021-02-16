@@ -1,4 +1,4 @@
-This file is part of Aurora HUD v0.1 which is released under CC-BY-SA 4.0.
+This file is part of Aurora HUD v1.1 which is released under CC-BY-SA 4.0.
 
 This file represents my reverse engineering of the files which define Freelancer's user interface.
 
