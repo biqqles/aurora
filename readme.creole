@@ -1,0 +1,43 @@
+== Aurora HUD v1.1 ==
+
+Aurora: a dark, minimalistic, modular theme for Freelancer.
+
+* https://discoverygc.com/forums/showthread.php?tid=179992
+* https://github.com/biqqles/aurora
+
+Created using [[https://www.gimp.org|GIMP]], [[https://github.com/Friendly0Fire/UTFEditor|UTFEditor]], and a whole
+lot of time.
+
+See also the file [[reverse-engineering.txt]] which details my reverse engineering of the files that Aurora uses.
+
+
+=== Licensing ===
+
+This work is licensed under the [[https://creativecommons.org/licenses/by-sa/4.0/legalcode|CC-BY-SA 4.0 license]].
+Original content is //Copyright 2020-2021 Biggles (biqqles)//.
+
+Titillium Web is provided by the [[http://nta.accademiadiurbino.it/titillium.html|Accademia di Belle Arti di Urbino]]
+and licensed under the [[https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL|Open Fonts License v1.1]].
+The navmap background is [[http://fav.me/d7dz6nj|"Tiling Space Background"]] by LittleFireDragon and licensed under
+[[https://creativecommons.org/licenses/by-nc-nd/3.0/|CC BY-NC-ND 3.0]]. 
+                                                          
+
+=== Known issues/future work ===
+
+ * Navbar perimeter animation skips once every few cycles
+ * hud_shipinfo.cmp is a copy of hud_target.cmp so the animations go the wrong way (they should be mirror images)
+ * Baside navbar popout is still blue (cannot find the file for this)
+ * During the vendor window opening animation the blue frame colour is visible. Presumably this is just another file
+    that needs to be changed
+ * Freelancer offsets the navmap background by a couple of pixels because the left margin isn't taken into account.
+    It might be possible to fix this (extremely minor though)
+
+
+=== Changelog ===
+
+==== Version 1.1 ====
+ * Off-screen indicator background changed to black
+ * Project moved to GitHub
+
+==== Version 0.1 ====
+ * Initial release
